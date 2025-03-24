@@ -1,0 +1,13 @@
+{
+  "command.foldAll": "折叠所有",
+  "command.unfoldAll": "展开所有",
+  "command.collapseTreeAll": "折叠代码树",
+  "command.expandTreeAll": "展开代码树",
+  "command.unfoldTo": "展开至指定层级",
+  "command.refreshView": "刷新代码树",
+  "command.toggleCursorTrackingOn": "关闭光标跟踪",
+  "command.toggleCursorTrackingOff": "开启光标跟踪",
+  "command.foldRegion": "折叠区域",
+  "command.goToLocation": "跳转到代码位置",
+  "view.title": "代码树"
+}

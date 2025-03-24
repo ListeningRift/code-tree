@@ -1,0 +1,13 @@
+{
+  "command.foldAll": "Fold All",
+  "command.unfoldAll": "Unfold All",
+  "command.collapseTreeAll": "Collapse Tree",
+  "command.expandTreeAll": "Expand Tree",
+  "command.unfoldTo": "Unfold To Level",
+  "command.refreshView": "Refresh Code Tree",
+  "command.toggleCursorTrackingOn": "Disable Cursor Tracking",
+  "command.toggleCursorTrackingOff": "Enable Cursor Tracking",
+  "command.foldRegion": "Fold Region",
+  "command.goToLocation": "Go to Code Location",
+  "view.title": "Code Tree"
+}

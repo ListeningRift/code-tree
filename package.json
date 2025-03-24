@@ -1,0 +1,177 @@
+{
+  "publisher": "ListeningRift",
+  "name": "codetree",
+  "displayName": "Code Tree",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A VSCode plugin in the form of a tree to code navigation.",
+  "author": "ListeningRift",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ListeningRift/code-tree"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "icon": "images/logo.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "l10n": "./l10n",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeTree.foldAll",
+        "title": "%command.foldAll%",
+        "icon": "$(fold)"
+      },
+      {
+        "command": "codeTree.unfoldAll",
+        "title": "%command.unfoldAll%",
+        "icon": "$(unfold)"
+      },
+      {
+        "command": "codeTree.collapseTreeAll",
+        "title": "%command.collapseTreeAll%",
+        "icon": "$(collapse-all)"
+      },
+      {
+        "command": "codeTree.expandTreeAll",
+        "title": "%command.expandTreeAll%",
+        "icon": "$(expand-all)"
+      },
+      {
+        "command": "codeTree.unfoldTo",
+        "title": "%command.unfoldTo%"
+      },
+      {
+        "command": "codeTree.refreshView",
+        "title": "%command.refreshView%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "codeTree.toggleCursorTrackingOn",
+        "title": "%command.toggleCursorTrackingOn%",
+        "icon": "$(eye)"
+      },
+      {
+        "command": "codeTree.toggleCursorTrackingOff",
+        "title": "%command.toggleCursorTrackingOff%",
+        "icon": "$(eye-closed)"
+      },
+      {
+        "command": "codeTree.foldRegion",
+        "title": "%command.foldRegion%",
+        "icon": "$(fold)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeTree",
+          "title": "%view.title%",
+          "icon": "images/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codeTree": [
+        {
+          "id": "codeTreeView",
+          "name": "%view.title%"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "codeTree.refreshView",
+          "group": "navigation@5",
+          "when": "view == codeTreeView"
+        },
+        {
+          "command": "codeTree.toggleCursorTrackingOn",
+          "group": "navigation@4",
+          "when": "view == codeTreeView && codeTree.cursorTrackingEnabled"
+        },
+        {
+          "command": "codeTree.toggleCursorTrackingOff",
+          "group": "navigation@4",
+          "when": "view == codeTreeView && !codeTree.cursorTrackingEnabled"
+        },
+        {
+          "command": "codeTree.foldAll",
+          "group": "navigation@2",
+          "when": "view == codeTreeView"
+        },
+        {
+          "command": "codeTree.unfoldAll",
+          "group": "navigation@3",
+          "when": "view == codeTreeView"
+        },
+        {
+          "command": "codeTree.collapseTreeAll",
+          "group": "navigation@1",
+          "when": "view == codeTreeView"
+        },
+        {
+          "command": "codeTree.expandTreeAll",
+          "group": "navigation@1",
+          "when": "view == codeTreeView"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "codeTree.foldRegion",
+          "when": "view == codeTreeView"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && npm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "fix": "eslint src --fix",
+    "lint-staged": "npm run fix",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.1.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.19",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.24.2",
+    "eslint": "^9.19.0",
+    "lint-staged": "^15.4.3",
+    "npm-run-all": "^4.1.5",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.7.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

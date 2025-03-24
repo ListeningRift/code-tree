@@ -1,0 +1,8 @@
+{
+  "notification.cursorTrackingEnabled": "Cursor tracking enabled",
+  "notification.cursorTrackingDisabled": "Cursor tracking disabled",
+  "input.unfoldToLevel": "Enter level to unfold (0-9)",
+  "input.unfoldToLevelPlaceholder": "Example: 2",
+  "input.unfoldToLevelError": "Please enter a number between 0-9",
+  "command.goToLocation": "Go to Code Location"
+}

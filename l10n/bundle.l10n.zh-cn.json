@@ -1,0 +1,8 @@
+{
+  "notification.cursorTrackingEnabled": "光标跟踪已开启",
+  "notification.cursorTrackingDisabled": "光标跟踪已关闭",
+  "input.unfoldToLevel": "请输入要展开到的层级(0-9)",
+  "input.unfoldToLevelPlaceholder": "例如: 2",
+  "input.unfoldToLevelError": "请输入0-9之间的数字",
+  "command.goToLocation": "跳转到代码位置"
+}
